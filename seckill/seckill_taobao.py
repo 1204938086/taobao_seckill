@@ -130,8 +130,8 @@ class ChromeDrive:
         self.driver.get("https://cart.taobao.com/cart.htm")
         sleep(1)
 
-        if self.driver.find_element_by_id("J_SelectAll1"):
-            self.driver.find_element_by_id("J_SelectAll1").click()
+        if self.driver.find_element_by_xpath('//*[@id="cart-operation-fixed"]/label/span[1]/input'):
+            self.driver.find_element_by_xpath('//*[@id="cart-operation-fixed"]/label/span[1]/input').click()
             print("已经选中全部商品！！！")
 
         submit_succ = False
@@ -152,14 +152,14 @@ class ChromeDrive:
 
                 try:
 
-                    if self.driver.find_element_by_id("J_Go"):
-                        self.driver.find_element_by_id("J_Go").click()
+                    if self.driver.find_element_by_xpath('//*[@id="settlementContainer_1"]/div[4]/div/div[2]'):
+                        self.driver.find_element_by_xpath('//*[@id="settlementContainer_1"]/div[4]/div/div[2]').click()
                         print("已经点击结算按钮...")
                         click_submit_times = 0
                         while True:
                             try:
                                 if click_submit_times < 10:
-                                    self.driver.find_element_by_link_text('提交订单').click()
+                                    self.driver.find_element_by_xpath('//*[@id="submitOrder"]/div/div[2]/div').click()
                                     print("已经点击提交订单按钮")
                                     submit_succ = True
                                     break
